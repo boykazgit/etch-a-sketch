@@ -1,0 +1,59 @@
+:root {
+  /*container size(500) +  gap(2)*/
+  /* had to increase it due to the browsers error margin in the calculation of the square box size in the script file*/
+  --main-container-dimension: 450.13px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(0, 0, 46);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  gap: 10px;
+}
+
+h1, p {
+  margin: 0px;
+}
+
+.main-container {
+  width: var(--main-container-dimension);
+  height: var(--main-container-dimension);
+  background-color: lightgrey;
+  /* padding: 2px; */
+  border-radius: 10%;
+  overflow: hidden;
+  display: flex;
+  gap: 1px;
+  flex-wrap: wrap;
+}
+
+.squares {
+  background-color: white;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+
+button {
+  border: solid 2px white;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 0, 46);
+  border-radius: 10px;
+  background: white;
+}
+
+button:hover {
+  color: white;
+  background-color: rgb(0, 0, 46);
+}
+
+button:active {
+  background-color: rgb(0, 0, 92);
+}
