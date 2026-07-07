@@ -1,6 +1,7 @@
 const mainContainer = document.querySelector('.main-container')
 const mainContainerSize = 450;
 const clearButton = document.querySelector('.clear-button');
+const erazeButton = document.querySelector('.eraze-button')
 const changeGridDimensionButton = document.querySelector('.change-grid-size');
 const buttonsContainer = document.querySelector('.buttons-container');
 
@@ -54,8 +55,13 @@ function paint(event) {
     if (event.target.className != 'main-container'){
       event.target.style.backgroundColor = generateRandomColor();
     }
-  //Darkening Paint Mode  
+  //Eraze Paint Mode
   }else if (paintMode === 3) {
+    if(event.target.className != 'main-container') {
+      event.target.style.backgroundColor = 'white';
+    }
+  //Darkening Paint Mode  
+  }else if (paintMode === 4) {
       if (event.target.className != 'main-container'){
         const allSquares = document.querySelectorAll('.squares');
         let eventId = event.target.id;
@@ -90,8 +96,10 @@ function setPaintMode(event) {
     paintMode = 1;
   }else if (event.target.className === 'rainbow-mode') {
     paintMode = 2;
-  } else if (event.target.className === 'darkening-mode') {
+  }else if (event.target.className === 'eraze-button'){
     paintMode = 3;
+  } else if (event.target.className === 'darkening-mode') {
+    paintMode = 4;
   }
 }
 
@@ -108,5 +116,6 @@ buttonsContainer.addEventListener('click', setPaintMode);
 
 generateGrid(defaultGridDimension);
 changeGridDimensionButton.onclick =  changeGridDimension;
+
 clearButton.addEventListener('click',clearPaint);
 
