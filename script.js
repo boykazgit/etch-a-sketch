@@ -4,6 +4,7 @@ const clearButton = document.querySelector('.clear-button');
 const erazeButton = document.querySelector('.eraze-button')
 const changeGridDimensionButton = document.querySelector('.change-grid-size');
 const buttonsContainer = document.querySelector('.buttons-container');
+const paintModeDisplay = document.querySelector('.paint-status');
 
 //set default gridDimension which can be changed by user
 let defaultGridDimension = 10;
@@ -94,12 +95,16 @@ function clearPaint() {
 function setPaintMode(event) {
   if(event.target.className === 'normal-mode') {
     paintMode = 1;
+    paintModeDisplay.textContent = 'Normal Paint Mode'
   }else if (event.target.className === 'rainbow-mode') {
     paintMode = 2;
+    paintModeDisplay.textContent = 'Rainbow Paint Mode'
   }else if (event.target.className === 'eraze-button'){
     paintMode = 3;
+    paintModeDisplay.textContent = 'Eraze Mode'
   } else if (event.target.className === 'darkening-mode') {
     paintMode = 4;
+    paintModeDisplay.textContent = 'Darkening Mode'
   }
 }
 
