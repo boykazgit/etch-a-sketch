@@ -7,7 +7,7 @@ const buttonsContainer = document.querySelector('.buttons-container');
 const paintModeDisplay = document.querySelector('.paint-status');
 
 //set default gridDimension which can be changed by user
-let defaultGridDimension = 10;
+let defaultGridDimension = 16;
 let squares;
 //Set default paintMode to normal mode and changes on button press
 let paintMode = 1;
@@ -108,8 +108,9 @@ function setPaintMode(event) {
   }
 }
 
-mainContainer.addEventListener("mousedown", ()=> {
-  allowPaint()
+mainContainer.addEventListener("mousedown", (event)=> {
+  paint(event);
+  allowPaint();
   }
 );
 
