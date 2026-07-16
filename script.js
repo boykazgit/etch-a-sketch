@@ -1,5 +1,5 @@
 const mainContainer = document.querySelector('.main-container')
-const mainContainerSize = 450;
+const mainContainerSize = 500;
 const clearButton = document.querySelector('.clear-button');
 const erazeButton = document.querySelector('.eraze-button')
 const changeGridDimensionButton = document.querySelector('.change-grid-size');
@@ -30,8 +30,8 @@ function generateGrid(gridDimension) {
     squares.style.backgroundColor = 'white';
   
     if (gridDimension >= 2) {
-     squares.style.height = `${(mainContainerSize/gridDimension)-(`${((gridDimension-1)*1)/gridDimension}`)}px`;
-     squares.style.width = `${(mainContainerSize/gridDimension)-(`${((gridDimension-1)*1)/gridDimension}`)}px`;
+     squares.style.height = `${(mainContainerSize/gridDimension)}px`;
+     squares.style.width = `${(mainContainerSize/gridDimension)}px`;
     }
 }
 

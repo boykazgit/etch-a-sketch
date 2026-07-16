@@ -1,8 +1,12 @@
 :root {
-  /*container size(500) +  gap(2)*/
-  /* had to increase it due to the browsers error margin in the calculation of the square box size in the script file*/
-  --main-container-dimension: 450.13px;
+  --main-container-dimension: 502px;
+
 }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(0, 0, 46);
@@ -20,17 +24,15 @@ h1, p {
 .main-container {
   width: var(--main-container-dimension);
   height: var(--main-container-dimension);
-  background-color: lightgrey;
-  /* padding: 2px; */
-  border-radius: 10%;
+  border: solid 1px lightgray;
   overflow: hidden;
   display: flex;
-  gap: 1px;
   flex-wrap: wrap;
 }
 
 .squares {
   background-color: white;
+  border: solid 1px lightgray;
 }
 
 .buttons-container {
