@@ -49,7 +49,7 @@ function paint(event) {
   //Normal Paint Mode
   if (paintMode === 1) {
     if (event.target.className != 'main-container'){
-      event.target.style.backgroundColor = 'darkgrey';
+      event.target.style.backgroundColor = '#3D3D3D';
     }
   //Rainbow Paint Mode
   }else if (paintMode === 2) {
