@@ -33,17 +33,8 @@ function generateGrid(gridDimension) {
      squares.style.height = `${(mainContainerSize/gridDimension)}px`;
      squares.style.width = `${(mainContainerSize/gridDimension)}px`;
     }
-}
-
-  const allSquares = document.querySelectorAll('.squares');
-
-  //set id for each cell to be used for the darkening effect
-  let i = 0;
-    allSquares.forEach(element => {
-      element.id = `square_${i}`
-      i++;
-    });
   }
+}
 
 function paint(event) {
   //Normal Paint Mode
@@ -63,12 +54,19 @@ function paint(event) {
     }
   //Darkening Paint Mode  
   }else if (paintMode === 4) {
+      const allSquares = document.querySelectorAll('.squares');
       if (event.target.className != 'main-container'){
-        const allSquares = document.querySelectorAll('.squares');
-        let eventId = event.target.id;
-        window[eventId + '_DarkeningPercentage']
-        // console.log(eventId);
-        console.log(window[eventId + '_DarkeningPercentage']);
+      // get the current color 
+      let currentColor = window.getComputedStyle(event.target).backgroundColor;
+      // extract only the color values from the array
+      let colorValueArray = currentColor.match(/\d+/g);
+      // get only one entry
+      let colorValue = parseInt(colorValueArray);
+      //increment the color by 51 untill 255
+      let newColor = Math.max(colorValue - 51, 0);
+      // assign the new color
+      let newColorRGB = `rgb(${newColor}, ${newColor}, ${newColor})`;
+      event.target.style.backgroundColor = newColorRGB;
     }
   }
 }
@@ -104,9 +102,10 @@ function setPaintMode(event) {
     paintModeDisplay.textContent = 'Eraze Mode'
   } else if (event.target.className === 'darkening-mode') {
     paintMode = 4;
-    paintModeDisplay.textContent = 'Darkening Mode'
+    paintModeDisplay.textContent = 'Darkening Mode';
   }
 }
+
 
 mainContainer.addEventListener("mousedown", (event)=> {
   paint(event);
